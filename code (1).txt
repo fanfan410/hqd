@@ -1,0 +1,783 @@
+\documentclass[10pt]{beamer} % Kích thước font cơ bản là 10pt
+
+% --- THÔNG TIN CƠ BẢN ---
+\title[Dự đoán giá nhà Boston]{Dự đoán giá nhà ở Boston} % Tiêu đề ngắn cho footer/header
+\author[Phan Thu Trang]{Sinh viên: Phan Thu Trang \\ MSSV: 20227156 \\ \vspace{0.5em} GVHD: TS. Trần Ngọc Thăng \\ Mã lớp: 158242}
+\institute[ĐHBK HN]{Đại học Bách Khoa Hà Nội \\ Khoa Toán - Tin \\ Hệ hỗ trợ quyết định - Tuần 8 - Chủ đề 13}
+\date{Hà Nội, Ngày 21 tháng 4 năm 2025} % Sử dụng ngày từ Word
+
+% --- CẤU HÌNH GÓI TIẾNG VIỆT VÀ FONT ---
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc} % Font encoding cho tiếng Việt
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx} % Để chèn hình ảnh
+\usepackage{booktabs} % Để kẻ bảng đẹp hơn (cho Hình 11)
+\usepackage{listings} % Để hiển thị code Python
+\usepackage{hyperref} % Tạo link (cho Kaggle)
+
+% --- CẤU HÌNH LISTINGS CHO PYTHON ---
+\lstdefinestyle{python}{
+    language=Python,
+    basicstyle=\ttfamily\small, % Font và cỡ chữ cho code
+    keywordstyle=\color{blue},
+    stringstyle=\color{red!60!black},
+    commentstyle=\color{green!60!black},
+    morecomment=[l]{\#},
+    numbers=left, % Hiển thị số dòng
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{gray!10}, % Màu nền cho khối code
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single, % Khung bao quanh code
+    rulecolor=\color{black},
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+    escapeinside={\%*}{*)},
+    morekeywords={*,...} % Thêm keywords nếu cần
+}
+\lstset{style=python}
+
+% --- SỬ DỤNG THEME (Ví dụ: Warsaw) ---
+% Bạn cần thay thế bằng theme FaMI nếu có
+\usetheme{Warsaw}
+% \usetheme{FaMI} % <<<--- Thay thế bằng theme của bạn nếu có
+
+% --- TÙY CHỈNH MÀU SẮC (Mô phỏng theme FaMI) ---
+% Các màu này cần được định nghĩa chính xác theo theme FaMI
+\definecolor{FaMI প্রধান}{RGB}{196, 18, 48} % Màu đỏ chủ đạo (Ước lượng)
+\definecolor{FaMI দ্বিতীয়}{RGB}{0, 84, 159} % Màu xanh dương (Ước lượng)
+\setbeamercolor{palette primary}{bg=FaMI প্রধান,fg=white}
+\setbeamercolor{palette secondary}{bg=FaMI প্রধান,fg=white}
+\setbeamercolor{palette tertiary}{bg=FaMI প্রধান,fg=white}
+\setbeamercolor{palette quaternary}{bg=FaMI প্রধান,fg=white}
+\setbeamercolor{structure}{fg=FaMI প্রধান} % Màu các cấu trúc (tiêu đề, bullet...)
+\setbeamercolor{title}{bg=FaMI প্রধান,fg=white}
+\setbeamercolor{frametitle}{bg=white,fg=FaMI প্রধান} % Nền trắng, chữ đỏ cho tiêu đề frame
+\setbeamercolor{sidebar}{bg=FaMI প্রধান,fg=white} % Sidebar nền đỏ chữ trắng
+\setbeamercolor{section in sidebar}{fg=white}
+\setbeamercolor{subsection in sidebar}{fg=lightgray}
+\setbeamercolor{section in sidebar shaded}{fg=yellow} % Mục được chọn có thể màu vàng?
+\setbeamercolor{title in head/foot}{bg=FaMI প্রধান, fg=white}
+\setbeamercolor{author in head/foot}{bg=FaMI প্রধান, fg=white}
+\setbeamercolor{date in head/foot}{bg=FaMI প্রধান, fg=white}
+
+% --- TÙY CHỈNH HEADER/FOOTER (Mô phỏng theme FaMI) ---
+\setbeamertemplate{headline}{} % Bỏ headline mặc định của Warsaw nếu cần
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hspace*{2ex}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{2ex}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{navigation symbols}{} % Bỏ các nút điều hướng
+
+% --- ĐỊNH NGHĨA LOGO (Mô phỏng) ---
+% Bạn cần file logo thực tế
+\logo{%
+  \includegraphics[height=0.8cm]{logo_hust_long.png}% <--- Logo dài ở góc trên (cần file)
+  \hspace*{\fill}
+  \includegraphics[height=1.2cm]{logo_fami.png}% <--- Logo FaMI ở góc trên? (cần file)
+}
+\pgfdeclareimage[height=1cm]{logo_hust_round}{logo_hust_round.png} % <--- Logo tròn ở sidebar (cần file)
+\setbeamertemplate{sidebar canvas left}{%
+    \vspace*{1em} % Khoảng cách từ top
+    \usebeamercolor{sidebar}
+    \hrulefill % Đường kẻ ngang (nếu có trong FaMI)
+    \vspace*{1em}
+    \beamercolorbox[wd=\beamer@sidebarwidth,left]{section in sidebar}
+      {\raggedright\insertverticalnavigation{\beamer@sidebarwidth}} % Menu mục lục
+    \vfill % Đẩy logo xuống dưới
+    \centering
+    \pgfuseimage{logo_hust_round}\\[1em] % Chèn logo tròn ở đáy sidebar
+}
+
+
+% --- FRAME TIÊU ĐỀ CHÍNH (Mô phỏng Slide 1 FaMI) ---
+% Frame tiêu đề thường không dùng theme sidebar/header/footer
+{ 
+\setbeamertemplate{footline}{} % Xoá footer cho title page
+\setbeamertemplate{headline}{} % Xoá headline
+\setbeamertemplate{sidebar}{} % Xoá sidebar
+\usebackgroundtemplate{\includegraphics[width=\paperwidth, height=\paperheight]{background_fami_title.png}} % Nếu có ảnh nền riêng
+% Hoặc chỉ đặt màu nền đỏ:
+% \setbeamercolor{background canvas}{bg=FaMI প্রধান} 
+\begin{frame}[plain] % Plain để bỏ các yếu tố theme mặc định
+    \begin{center}
+        % \vspace*{2cm} % Điều chỉnh khoảng cách từ top
+        % Chèn Logo dài BKHN ở góc trên bên trái nếu cần thiết kế đặc biệt
+        % \begin{tikzpicture}[remember picture, overlay]
+        % \node at (current page.north west) [anchor=north west, xshift=1cm, yshift=-1cm]
+        % {\includegraphics[height=1cm]{logo_hust_long.png}};
+        % \end{tikzpicture}
+
+        {\Huge\bfseries\color{white} Dự đoán giá nhà\\[0.5em] ở Boston} % Đổi thành Boston theo yêu cầu mới nhất (dù dataset là Miami)
+        
+        \vspace{2cm} % Khoảng cách giữa tiêu đề và ngày tháng
+        
+        {\large\color{white} \insertdate}
+
+        % Có thể thêm logo FaMI ở đây nếu cần
+        
+        % Thêm pattern caro ở góc dưới bên phải (Cần code Tikz phức tạp hoặc ảnh nền)
+        % \begin{tikzpicture}[remember picture, overlay]
+        % \node at (current page.south east) [anchor=south east, xshift=-1cm, yshift=1cm]
+        % {\includegraphics[width=4cm]{fami_pattern.png}}; % File ảnh pattern
+        % \end{tikzpicture}
+        
+         % Thêm mã 04102004 góc dưới trái (nếu cần)
+         \begin{textblock*}{\paperwidth}(0.5cm, \dimexpr\paperheight-1cm\relax) % Vị trí gần góc dưới trái
+            \color{white!70} \tiny 04102004
+         \end{textblock*}
+
+    \end{center}
+\end{frame}
+} % Kết thúc block không sidebar/footer
+
+\begin{document}
+
+% --- SLIDE MỤC LỤC (Slide 2) ---
+\begin{frame}{Nội dung chính}
+    \tableofcontents[hideallsubsections] % Chỉ hiện các Section chính
+\end{frame}
+
+% --- PHẦN 1: PHÁT BIỂU BÀI TOÁN ---
+\section{Phát biểu bài toán}
+
+\begin{frame}{1.1 Mô tả bài toán & Mục tiêu}
+    \begin{itemize}
+        \item Dựa trên bộ dữ liệu giao dịch bất động sản (nhà ở một gia đình) đã bán ở \textbf{Miami} (theo nguồn Kaggle). 
+        \item \textbf{Mục tiêu:} Xây dựng mô hình học máy để dự đoán giá bán của ngôi nhà (\texttt{SALE\_PRC}).
+        \item Sử dụng các thuộc tính liên quan như: diện tích đất, diện tích sống, khoảng cách đến các tiện ích, tuổi của ngôi nhà, chất lượng cấu trúc, v.v.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{1.2 Đầu vào: Giới thiệu bộ dữ liệu}
+    \textbf{Miami Housing Dataset}
+    \begin{itemize}
+        \item Nguồn dữ liệu: Kaggle (\url{https://www.kaggle.com/datasets/deepcontractor/miami-housing-dataset/data})
+        \item Số lượng mẫu: 13,932 ngôi nhà
+        \item Kích thước dữ liệu: 1.64 MB
+        \item Năm dữ liệu: 2016
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{1.2 Đầu vào: Các thuộc tính (1/2)}
+    Bộ dữ liệu ở định dạng CSV với các cột thông tin:
+    \begin{itemize}
+        \item \texttt{LATITUDE}: Vĩ độ của ngôi nhà.
+        \item \texttt{LONGITUDE}: Kinh độ của ngôi nhà.
+        \item \texttt{PARCELNO}: Số hiệu lô đất (có thể dùng làm định danh duy nhất).
+        \item \textbf{\texttt{SALE\_PRC}}: Giá bán của ngôi nhà (\textbf{biến mục tiêu}).
+        \item \texttt{LND\_SQFOOT}: Diện tích đất (đơn vị: feet vuông).
+        \item \texttt{TOT\_LVG\_AREA}: Tổng diện tích sống (đơn vị: feet vuông).
+        \item \texttt{SPEC\_FEAT\_VAL}: Giá trị các đặc điểm đặc biệt (ví dụ: hồ bơi, cảnh quan).
+        \item \texttt{RAIL\_DIST}: Khoảng cách đến đường sắt (đơn vị: mét).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{1.2 Đầu vào: Các thuộc tính (2/2)}
+    \begin{itemize}
+        \item \texttt{OCEAN\_DIST}: Khoảng cách đến đại dương (đơn vị: mét).
+        \item \texttt{WATER\_DIST}: Khoảng cách đến nguồn nước gần nhất (đơn vị: mét).
+        \item \texttt{CNTR\_DIST}: Khoảng cách đến trung tâm thành phố (đơn vị: mét).
+        \item \texttt{SUBCNTR\_DI}: Khoảng cách đến trung tâm phụ (đơn vị: mét).
+        \item \texttt{HWY\_DIST}: Khoảng cách đến đường cao tốc (đơn vị: mét).
+        \item \texttt{age}: Tuổi của ngôi nhà (tính bằng năm).
+        \item \texttt{avno60plus}: Số chuyến bay trên 60 decibel (có thể là biến nhị phân hoặc số nguyên).
+        \item \texttt{month\_sold}: Tháng bán nhà (1-12).
+        \item \texttt{structure\_quality}: Chất lượng cấu trúc (thang điểm từ 1-5).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{1.3 Đầu ra & 1.4 Yêu cầu xử lý}
+    \textbf{1.3 Đầu ra}
+    \begin{itemize}
+        \item Kết quả dự đoán: Giá bán dự đoán của ngôi nhà (\texttt{SALE\_PRC}) dưới dạng số thực.
+    \end{itemize}
+    \vspace{1em}
+    \textbf{1.4 Yêu cầu xử lý}
+    \begin{itemize}
+        \item Tiền xử lý dữ liệu: Đảm bảo chất lượng đầu vào (xử lý giá trị thiếu, chuẩn hóa dữ liệu, mã hóa biến phân loại nếu cần).
+        \item Lựa chọn và huấn luyện mô hình học máy phù hợp (ví dụ: hồi quy tuyến tính, rừng ngẫu nhiên, gradient boosting).
+        \item Đánh giá hiệu suất mô hình: Sử dụng các chỉ số như MSE, RMSE, hoặc R².
+        \item Tối ưu hóa mô hình nếu cần (điều chỉnh siêu tham số, thử nghiệm các mô hình khác).
+    \end{itemize}
+\end{frame}
+
+% --- PHẦN 2: TIỀN XỬ LÝ DỮ LIỆU ---
+\section{Tiền xử lý dữ liệu}
+
+\begin{frame}{2.1 Thu nhập dữ liệu}
+    \begin{itemize}
+        \item Dữ liệu được cung cấp dưới dạng tệp CSV.
+        \item Sử dụng thư viện \texttt{pandas} trong Python để đọc:
+    \end{itemize}
+    \begin{lstlisting}[title={Đọc dữ liệu}]
+import pandas as pd
+# filepath = 'miami-housing.csv' % Giả định tên file
+# df = pd.read_csv(filepath) 
+# print(f"Kich thuoc du lieu: {df.shape}") 
+# print("\\nDu lieu mau:") 
+# print(df.head())
+# ---------- Giả lập Output từ Hình 1 --------
+# Kich thuoc du lieu: (13932, 17)
+# 
+# Du lieu mau:
+#    LATITUDE  LONGITUDE      PARCELNO  SALE_PRC  age  ...
+# 0 25.891031 -80.160561  6.222801e+11  440000.0   67  ...
+# 1 25.891324 -80.153968  6.222801e+11  349000.0   63  ...
+# ... (Các dòng khác) ...
+# [5 rows x 17 columns]
+    \end{lstlisting}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{fig1_thu_thap.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 1: Thu thập dữ liệu (Output thực tế)}
+    \end{center}
+\end{frame}
+
+\begin{frame}{2.2 Đánh nhãn & 2.3 EDA: Kiểu dữ liệu}
+    \textbf{2.2 Đánh Nhãn Dữ Liệu}
+    \begin{itemize}
+        \item Biến mục tiêu đã có nhãn: \texttt{SALE\_PRC} (giá bán) - Bài toán hồi quy.
+        \item Sau khi xử lý outliers, có thể dùng cột mới (\texttt{SALE\_PRC\_CLEANED}).
+    \end{itemize}
+    \vspace{1em}
+    \textbf{2.3 EDA: Kiểm tra Kiểu dữ liệu}
+     \begin{columns}[T] % Chia cột để đặt ảnh bên cạnh
+        \begin{column}{0.5\textwidth}
+           \begin{itemize}
+               \item Sử dụng \texttt{df.dtypes}.
+               \item Hầu hết các cột là kiểu số (\texttt{float64}, \texttt{int64}).
+               \item Phù hợp phân tích định lượng.
+               \item Không có biến dạng chuỗi cần mã hóa đặc biệt từ gốc.
+           \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{fig2_dtypes.png} \\ % <<-- CẦN FILE ẢNH
+            \tiny{Hình 2: Kết quả kiểm tra kiểu dữ liệu}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{2.3 EDA: Thống kê mô tả}
+    \begin{itemize}
+        \item Sử dụng \texttt{df.describe()}.
+        \item Kết quả (Xem hình):
+        \begin{itemize}
+            \item Giá nhà trung bình (mean) $\approx$ 440k USD.
+            \item Giá trị trung vị (median - 50\%) $\approx$ 335k USD.
+            \item => Cho thấy sự phân bố lệch phải do ảnh hưởng của các giá trị rất cao (max > 10M USD).
+        \end{itemize}
+    \end{itemize}
+     \begin{center}
+        \includegraphics[width=0.9\textwidth]{fig3_describe.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 3: Thống kê mô tả}
+    \end{center}
+\end{frame}
+
+\begin{frame}{2.3 EDA: Giá trị thiếu & Phân phối mục tiêu}
+   \begin{columns}[T]
+        \begin{column}{0.5\textwidth}
+            \textbf{Phân tích giá trị thiếu}
+            \begin{itemize}
+                \item Sử dụng \texttt{df.isnull().sum()}.
+                \item Kết quả (Hình 4): Không có cột nào có giá trị thiếu.
+            \end{itemize}
+             \includegraphics[width=0.8\textwidth]{fig4_isnull.png} \\ % <<-- CẦN FILE ẢNH
+             \tiny{Hình 4: Kiểm tra giá trị thiếu}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Phân tích biến mục tiêu (\texttt{SALE\_PRC})}
+            \begin{itemize}
+                 \item Biểu đồ Histogram (Hình 5): Phân phối bị lệch phải rõ rệt, đuôi dài về phía giá trị cao.
+                \item => Cần xử lý giá trị bất thường (outliers).
+            \end{itemize}
+             \includegraphics[width=\textwidth]{fig5_hist_sale_prc.png} \\ % <<-- CẦN FILE ẢNH
+             \tiny{Hình 5: Phân phối giá bán (gốc)}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{2.3 EDA: Ma trận tương quan}
+    \begin{itemize}
+        \item Phân tích tương quan giữa các biến số.
+        \item Màu đỏ đậm: tương quan dương mạnh.
+        \item Màu xanh đậm: tương quan âm mạnh.
+        \item Màu nhạt: tương quan yếu.
+        \item \textbf{Kết luận sơ bộ:} Các yếu tố như diện tích (\texttt{TOT\_LVG\_AREA}), chất lượng (\texttt{structure\_quality}), tuổi nhà (\texttt{age}) có vẻ là những yếu tố dự đoán quan trọng cho giá nhà. Các khoảng cách (ví dụ \texttt{OCEAN\_DIST}) cũng có ảnh hưởng.
+    \end{itemize}
+     \begin{center}
+        \includegraphics[width=\textwidth]{fig6_heatmap.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 6: Ma trận tương quan giữa các biến}
+    \end{center}
+\end{frame}
+
+\begin{frame}{2.4 Tiền xử lý: Xử lý Outliers (IQR)}
+    \begin{itemize}
+        \item Dùng IQR (Interquartile Range) để phát hiện và loại bỏ outlier trong biến mục tiêu \texttt{SALE\_PRC}.
+        \item Tính Q1 (phân vị 25\%), Q3 (phân vị 75\%), IQR = Q3 - Q1.
+        \item Xác định giới hạn:
+            \begin{itemize}
+                \item \texttt{lower\_bound = Q1 - 1.5 * IQR}
+                \item \texttt{upper\_bound = Q3 + 1.5 * IQR}
+            \end{itemize}
+        \item Giới hạn các giá trị của \texttt{SALE\_PRC} vào khoảng [\texttt{lower\_bound}, \texttt{upper\_bound}] bằng phương thức \texttt{clip()}, tạo cột mới \texttt{SALE\_PRC\_CLEANED}.
+    \end{itemize}
+     \begin{center}
+        \includegraphics[width=0.7\textwidth]{fig7_outliers_count.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 7: Số lượng outliers tìm thấy theo IQR}
+    \end{center}
+\end{frame}
+
+\begin{frame}{2.4 Tiền xử lý: Kết quả xử lý Outliers}
+    So sánh phân phối \texttt{SALE\_PRC} trước và sau khi xử lý outliers bằng Box Plot:
+    \begin{center}
+        % Có thể cần chia 2 cột để hiển thị ảnh này đẹp hơn
+         \includegraphics[width=0.9\textwidth]{fig8_boxplots.png} \\ % <<-- CẦN FILE ẢNH (ghép 2 boxplot)
+        \tiny{Hình 8: So sánh Box Plot trước và sau xử lý outliers}
+    \end{center}
+    \textbf{Nhận xét:}
+    \begin{itemize}
+        \item Không còn các điểm bất thường (hình tròn nhỏ) phía trên râu của box plot sau xử lý.
+        \item Các giá trị trước đây là outliers (ví dụ: > 700k USD) đã được "kéo" về giá trị tối đa "hợp lý" theo phương pháp IQR.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{2.4 Tiền xử lý: Chuẩn hóa, Mã hóa, Loại bỏ cột}
+    \textbf{Chuẩn Hóa Dữ Liệu (Standardization)}
+    \begin{itemize}
+        \item Các cột số như \texttt{LND\_SQFOOT}, \texttt{TOT\_LVG\_AREA}, \texttt{RAIL\_DIST}, etc., có đơn vị và phạm vi khác nhau, cần chuẩn hóa.
+        \item Ví dụ: Dùng \texttt{StandardScaler} từ \texttt{sklearn.preprocessing} để đưa về phân phối chuẩn có mean=0, std=1.
+    \end{itemize}
+    \vspace{0.5em}
+    \textbf{Mã Hóa Biến Phân Loại (One-Hot Encoding)}
+    \begin{itemize}
+        \item Các cột như \texttt{month\_sold} (1-12) và \texttt{structure\_quality} (1-5) có thể coi là biến phân loại.
+        \item Có thể dùng mã hóa one-hot để tránh giả định thứ tự sai lệch (ví dụ: \texttt{pd.get\_dummies}).
+    \end{itemize}
+     \vspace{0.5em}
+    \textbf{Loại Bỏ Cột Không Cần Thiết}
+     \begin{itemize}
+         \item Cột \texttt{PARCELNO} (số hiệu lô đất) chỉ dùng để định danh, không cần đưa vào mô hình dự đoán.
+         \item Lệnh ví dụ: \texttt{data.drop(columns=['PARCELNO'], inplace=True)}
+     \end{itemize}
+\end{frame}
+
+\begin{frame}{2.4 Tiền xử lý: Chia Tập Dữ Liệu}
+    \begin{itemize}
+        \item Chia dữ liệu thành tập huấn luyện (để dạy mô hình) và tập kiểm tra (để đánh giá).
+        \item Tỷ lệ thông thường: 80% huấn luyện, 20% kiểm tra.
+        \item Sử dụng \texttt{train\_test\_split} từ \texttt{sklearn.model\_selection}.
+         \begin{lstlisting}[title={Chia dữ liệu}]
+from sklearn.model_selection import train_test_split
+# X = data.drop(columns=['SALE_PRC_CLEANED', 'SALE_PRC']) % Đặc trưng
+# y = data['SALE_PRC_CLEANED'] % Biến mục tiêu đã xử lý
+# X_train, X_test, y_train, y_test = train_test_split(
+#    X, y, test_size=0.2, random_state=42)
+# --------- Giả lập Output từ Hình 9 ----------
+# Kích thước tập huấn luyện: X=(11145, 15), y=(11145,) % Số cột X thay đổi tùy tiền xử lý
+# Kích thước tập kiểm tra: X=(2787, 15), y=(2787,)
+        \end{lstlisting}
+         \begin{center}
+            \includegraphics[width=0.7\textwidth]{fig9_split_data.png} \\ % <<-- CẦN FILE ẢNH
+            \tiny{Hình 9: Kích thước tập huấn luyện và kiểm tra}
+        \end{center}
+         \item Sau bước này, dữ liệu sẵn sàng để đưa vào huấn luyện mô hình.
+    \end{itemize}
+\end{frame}
+
+% --- PHẦN 3: TẠO, LUYỆN, ĐÁNH GIÁ ---
+\section{Tạo, luyện và đánh giá mô hình}
+
+\begin{frame}{3.1 Lựa chọn mô hình & Quyết định}
+    Trong bài toán dự đoán giá nhà, các mô hình hồi quy sau được thử nghiệm:
+    \begin{itemize}
+        \item \textbf{Linear Regression:} Mô hình hồi quy tuyến tính cơ bản, làm baseline.
+        \item \textbf{Ridge Regression:} Hồi quy tuyến tính với Regularization L2 (giảm overfitting, xử lý đa cộng tuyến).
+        \item \textbf{Lasso Regression:} Hồi quy tuyến tính với Regularization L1 (giảm overfitting, tự động lựa chọn đặc trưng).
+        \item \textbf{Random Forest Regressor:} Mô hình Ensemble (nhiều cây quyết định), tốt cho dữ liệu phi tuyến, ít nhạy cảm với outlier.
+        \item \textbf{Gradient Boosting Regressor:} Mô hình Ensemble nâng cao (tuần tự sửa lỗi), thường cho hiệu suất rất tốt.
+    \end{itemize}
+    \textbf{Lý do lựa chọn:} Dựa trên bản chất bài toán hồi quy, tính chất thường phi tuyến của dữ liệu bất động sản, và mong muốn so sánh các kỹ thuật từ cơ bản đến nâng cao.
+\end{frame}
+
+\begin{frame}{3.2 Luyện mô hình: Đánh giá ban đầu (CV)}
+    \begin{itemize}
+        \item Sử dụng K-Fold Cross-Validation (K=5) trên tập huấn luyện để đánh giá hiệu suất ban đầu của các mô hình với tham số mặc định.
+        \item Chỉ số đánh giá chính: RMSE (Root Mean Squared Error).
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{fig10_boxplot_rmse_cv.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 10: So sánh RMSE của các mô hình qua Cross-Validation}
+    \end{center}
+    \textbf{Nhận xét:}
+    \begin{itemize}
+        \item Mô hình Gradient Boosting cho kết quả RMSE trung bình thấp nhất và độ phân tán (độ dài hộp) cũng tương đối nhỏ, cho thấy hiệu suất tốt và ổn định.
+        \item Linear, Ridge, Lasso có RMSE cao hơn đáng kể. Random Forest tốt hơn nhưng chưa bằng Gradient Boosting.
+        \item => Chọn Gradient Boosting để tiếp tục tinh chỉnh siêu tham số.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{3.2 Luyện mô hình: Tinh chỉnh (GridSearchCV)}
+    \begin{itemize}
+        \item Chọn Gradient Boosting làm mô hình chính.
+        \item Tiến hành tối ưu hóa siêu tham số bằng \textbf{GridSearchCV} để tìm tổ hợp tốt nhất.
+        \item \textbf{Không gian siêu tham số tìm kiếm (param\_grid):}
+            \begin{itemize}
+                \item \texttt{n\_estimators}: [100, 200, 300] (Số lượng cây)
+                \item \texttt{learning\_rate}: [0.01, 0.05, 0.1] (Tốc độ học)
+                \item \texttt{max\_depth}: [3, 5, 7] (Độ sâu tối đa của cây)
+                \item \texttt{min\_samples\_split}: [2, 5, 10] (Số mẫu tối thiểu để chia nhánh)
+                \item \texttt{subsample}: [0.8, 0.9, 1.0] (Tỷ lệ mẫu dùng cho mỗi cây)
+            \end{itemize}
+        \item GridSearchCV thực hiện Cross-Validation (ví dụ: cv=3) cho mỗi tổ hợp tham số.
+    \end{itemize}
+    \textit{(Quá trình này có thể mất nhiều thời gian)}
+\end{frame}
+
+\begin{frame}{3.3 Mô tả điều kiện dừng}
+    \textbf{Điều kiện dừng trong quá trình tìm kiếm (GridSearchCV):}
+    \begin{itemize}
+        \item \textbf{Duyệt hết không gian tham số:} Quá trình tìm kiếm dừng khi đã thử tất cả các tổ hợp siêu tham số được chỉ định trong \texttt{param\_grid}.
+        \item \textbf{Cross-validation đầy đủ:} Mỗi tổ hợp tham số được đánh giá bằng k-fold cross-validation (ví dụ k=3) để đảm bảo độ tin cậy của điểm số đánh giá.
+    \end{itemize}
+    \vspace{1em}
+     \textbf{Điều kiện dừng trong quá trình huấn luyện Gradient Boosting (cho một bộ tham số cụ thể):}
+     \begin{itemize}
+        \item \textbf{Số lượng cây cố định:} Mô hình dừng khi đạt đến số lượng cây đã chỉ định (\texttt{n\_estimators}).
+        \item \textbf{Early stopping (nếu được bật):} Dừng sớm nếu hiệu suất trên tập validation không cải thiện sau một số vòng lặp nhất định (không dùng trong GridSearchCV mặc định).
+        \item \textbf{Điều kiện dừng của các cây riêng lẻ:} Mỗi cây quyết định con dừng phân tách khi đạt đến độ sâu tối đa (\texttt{max\_depth}) hoặc khi số lượng mẫu tại nút nhỏ hơn \texttt{min\_samples\_split}.
+     \end{itemize}
+\end{frame}
+
+\begin{frame}{3.4 Đánh giá tinh chỉnh: Trước & Sau}
+    So sánh hiệu suất RMSE của Gradient Boosting:
+    \begin{itemize}
+        \item \textbf{1. Trước khi hiệu chỉnh (Mô hình mặc định trên CV tập huấn luyện):}
+            \begin{itemize}
+                 \item RMSE = 26,126.56 (±1199.20) USD
+            \end{itemize}
+        \item \textbf{2. Sau khi hiệu chỉnh (Kết quả tốt nhất từ GridSearchCV trên CV tập huấn luyện):}
+             \begin{itemize}
+                 \item RMSE = 16,168.27 USD
+             \end{itemize}
+        \item \textbf{3. Trên tập test (Mô hình tốt nhất sau GridSearchCV, đánh giá trên tập test riêng):}
+             \begin{itemize}
+                 \item RMSE = 14,779.87 USD
+             \end{itemize}
+    \end{itemize}
+    \textbf{Nhận xét:}
+    \begin{itemize}
+        \item \textbf{Cải thiện đáng kể:} Việc điều chỉnh siêu tham số làm giảm mạnh RMSE $\implies$ Rất quan trọng và hiệu quả.
+        \item \textbf{Hiệu suất xuất sắc trên tập test:} RMSE trên tập test thậm chí còn thấp hơn một chút so với kết quả CV tốt nhất, cho thấy mô hình không bị overfitting và tổng quát hóa cực kỳ tốt trên dữ liệu mới.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{3.5 Lựa chọn số đo đánh giá mô hình}
+    Các số đo được sử dụng để đánh giá mô hình hồi quy cuối cùng:
+    \begin{itemize}
+        \item \textbf{MAE (Mean Absolute Error):}
+            \begin{itemize}
+                \item Đo lường sai số tuyệt đối trung bình.
+                \item $MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|$
+                \item Cùng đơn vị với biến mục tiêu. Ít bị ảnh hưởng bởi outliers hơn RMSE.
+            \end{itemize}
+        \item \textbf{RMSE (Root Mean Squared Error):}
+            \begin{itemize}
+                 \item Đo lường căn bậc hai của sai số bình phương trung bình.
+                 \item $RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$
+                 \item Cùng đơn vị với biến mục tiêu. Nhấn mạnh các lỗi lớn.
+            \end{itemize}
+         \item \textbf{R² (R-squared):}
+             \begin{itemize}
+                 \item Chỉ số xác định mức độ biến thiên của biến mục tiêu được giải thích bởi mô hình.
+                 \item $R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}$
+                 \item Giá trị từ $-\infty$ đến 1. Càng gần 1 càng tốt.
+             \end{itemize}
+        \item \textbf{MAPE (Mean Absolute Percentage Error):}
+             \begin{itemize}
+                 \item Đo lường sai số phần trăm tuyệt đối trung bình.
+                 \item $MAPE = \frac{1}{n} \sum_{i=1}^{n} |\frac{y_i - \hat{y}_i}{y_i}| \times 100\%$
+                 \item Cho biết sai số tương đối, hữu ích khi so sánh trên các tập dữ liệu khác nhau. (Lưu ý: có thể không ổn định nếu $y_i$ gần 0).
+             \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{3.6 Đánh giá trên tập Test: Kết quả}
+    Kết quả đánh giá mô hình Gradient Boosting tốt nhất trên tập dữ liệu test (20% dữ liệu chưa từng thấy):
+     \begin{center}
+        % Sử dụng table thay cho ảnh nếu muốn text rõ hơn
+         \begin{tabular}{lr}
+            \toprule
+            Chỉ số đánh giá & Giá trị \\
+            \midrule
+            Mean Absolute Error (MAE) & \$9,061.80 \\
+            Root Mean Squared Error (RMSE) & \$14,779.87 \\
+            R-squared (R²) & 0.9925 \\
+            Mean Absolute Percentage Error (MAPE) & 2.58\% \\
+            \bottomrule
+         \end{tabular} \\
+         \vspace{1em}
+         Hoặc dùng ảnh: \\
+         \includegraphics[width=0.8\textwidth]{fig11_test_metrics.png} \\ % <<-- CẦN FILE ẢNH
+         \tiny{Hình 11: Các chỉ số hiệu suất trên tập Test}
+    \end{center}
+    \textbf{Nhận xét:}
+    \begin{itemize}
+        \item Các chỉ số đều rất tốt: MAE và RMSE tương đối nhỏ so với khoảng giá nhà, R² rất gần 1, MAPE chỉ khoảng 2.58%.
+        \item Mô hình hoạt động hiệu quả và chính xác trên dữ liệu mới.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{3.6 Đánh giá trên tập Test: Scatter Plot}
+    Biểu đồ phân tán (scatter plot) giữa giá thực tế và giá dự đoán trên tập test:
+     \begin{center}
+        \includegraphics[width=0.85\textwidth]{fig12_scatter_pred_true.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 12: Biểu đồ scatter plot Giá thực tế với Giá dự đoán}
+    \end{center}
+    \textbf{Cách đọc:}
+    \begin{itemize}
+        \item Mỗi điểm là một ngôi nhà trong tập test. Trục hoành: Giá thực tế (\texttt{y\_test}). Trục tung: Giá dự đoán (\texttt{y\_pred}).
+        \item Đường nét đứt màu đỏ là đường 45 độ (y = x), nơi giá thực tế bằng giá dự đoán.
+    \end{itemize}
+    \textbf{Nhận xét:}
+    \begin{itemize}
+        \item Các điểm tập trung rất dày đặc và bám sát quanh đường chéo màu đỏ.
+        \item Cho thấy mô hình dự đoán rất gần với giá trị thực tế trên hầu hết các mẫu.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{3.6 Đánh giá trên tập Test: Phân phối sai số}
+     Biểu đồ tần suất (histogram) của sai số dự đoán trên tập test:
+     \begin{center}
+        \includegraphics[width=0.85\textwidth]{fig13_hist_residuals.png} \\ % <<-- CẦN FILE ẢNH
+        \tiny{Hình 13: Biểu đồ Histogram Phân phối sai số}
+    \end{center}
+    \textbf{Cách đọc:}
+     \begin{itemize}
+        \item Sai số = Giá thực tế (\texttt{y\_test}) - Giá dự đoán (\texttt{y\_pred}).
+        \item Trục hoành là giá trị sai số, trục tung là số lượng mẫu có mức sai số đó.
+     \end{itemize}
+    \textbf{Nhận xét:}
+     \begin{itemize}
+        \item Phân phối sai số có dạng hình chuông, gần giống phân phối chuẩn.
+        \item Tập trung dày đặc quanh giá trị 0.
+        \item Đối xứng: Tần suất sai số dương (dự đoán thấp hơn thực tế) và sai số âm (dự đoán cao hơn thực tế) là tương đương.
+        \item => Phần lớn các dự đoán có sai số nhỏ và không có thiên lệch hệ thống rõ rệt.
+     \end{itemize}
+\end{frame}
+
+
+% --- PHẦN 4: ỨNG DỤNG MÔ HÌNH ---
+\section{Ứng dụng mô hình}
+
+\begin{frame}{4.1 Mô tả ứng dụng: Ngữ cảnh}
+    Mô hình dự đoán giá nhà này có thể được ứng dụng trong nhiều ngữ cảnh thực tế:
+    \begin{itemize}
+        \item \textbf{Công cụ định giá cho công ty môi giới BĐS:} Hỗ trợ môi giới viên đưa ra ước tính giá ban đầu nhanh chóng, tư vấn khách hàng hiệu quả.
+        \item \textbf{Hệ thống hỗ trợ định giá cho ngân hàng:} Hỗ trợ quá trình thẩm định giá trị BĐS khi cấp khoản vay thế chấp.
+        \item \textbf{Công cụ cho nhà đầu tư BĐS:} Giúp xác định các BĐS có giá thấp hơn giá trị thực ( undervalued) để tìm cơ hội đầu tư.
+        \item \textbf{Ứng dụng di động cho người mua nhà:} Cung cấp ước tính giá nhanh khi xem nhà, hỗ trợ đưa ra quyết định mua.
+        \item \textbf{Công cụ phân tích thị trường:} Hỗ trợ các nhà phát triển BĐS phân tích xu hướng, xác định mức giá hợp lý cho dự án mới.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{4.1 Mô tả ứng dụng: Triển khai Web (Flask)}
+    \begin{itemize}
+        \item Có thể triển khai mô hình đã huấn luyện vào một ứng dụng web đơn giản sử dụng framework \textbf{Flask} (Python).
+        \item \textbf{Quy trình cơ bản:}
+        \begin{enumerate}
+            \item Tải mô hình đã lưu (\texttt{.pkl}) và bộ tiền xử lý (\texttt{.pkl}) nếu có.
+            \item Tạo giao diện người dùng (\texttt{index.html}) để nhập các đặc điểm của ngôi nhà (diện tích, tuổi, vị trí...).
+            \item Xây dựng một endpoint (\texttt{/predict}) nhận dữ liệu POST từ form.
+            \item Bên trong endpoint:
+                \begin{itemize}
+                    \item Chuyển đổi dữ liệu nhập thành DataFrame.
+                    \item Áp dụng các bước tiền xử lý giống như lúc huấn luyện (sử dụng preprocessor đã lưu).
+                    \item Dùng mô hình đã tải để dự đoán giá (\texttt{model.predict()}).
+                    \item Trả kết quả dự đoán về giao diện người dùng.
+                \end{itemize}
+        \end{enumerate}
+         \item Ví dụ mã nguồn cơ bản được trình bày trong file báo cáo Word.
+    \end{itemize}
+    % Có thể chèn ảnh chụp màn hình giao diện web đơn giản ở đây nếu có
+    % \begin{center}
+    %    \includegraphics[width=0.7\textwidth]{flask_app_screenshot.png}
+    % \end{center}
+\end{frame}
+
+\begin{frame}{4.2 Diễn giải kết quả: Mẫu 1 (Cao cấp gần biển)}
+    \textbf{Mẫu 1: Nhà ở khu vực cao cấp gần biển (North Beach)}
+    \begin{itemize}
+        \item \textbf{Đặc điểm chính:} Gần biển (1,200 ft), DT đất 10k, DT sống 2.5k sqft, 15 năm tuổi, chất lượng cấu trúc 5 (cao nhất).
+        \item Giá trị dự đoán bởi mô hình: \textbf{\$1,245,000}
+        \item Giá trị thực tế tham khảo: \$1,280,000
+        \item Sai số: \$1,245,000 - \$1,280,000 = -\$35,000 (\textbf{-2.7\%}) 
+    \end{itemize}
+    \textbf{Phân tích:}
+    \begin{itemize}
+        \item Mô hình dự đoán khá chính xác, sai số thấp (-2.7\%).
+        \item Nắm bắt tốt các yếu tố làm tăng giá trị: vị trí đắc địa (gần biển), nhà tương đối mới (15 năm), chất lượng công trình cao (cấp 5).
+        \item Kết quả đáng tin cậy cho phân khúc bất động sản cao cấp.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{4.2 Diễn giải kết quả: Mẫu 2 (Trung bình)}
+    \textbf{Mẫu 2: Nhà ở khu vực trung bình (Coral Gables)}
+     \begin{itemize}
+        \item \textbf{Đặc điểm chính:} DT đất 7.5k, DT sống 1.8k sqft, 35 năm tuổi, chất lượng cấu trúc 3 (trung bình).
+        \item Giá trị dự đoán bởi mô hình: \textbf{\$620,000}
+        \item Giá trị thực tế tham khảo: \$595,000
+        \item Sai số: \$620,000 - \$595,000 = +\$25,000 (\textbf{+4.2\%}) 
+     \end{itemize}
+    \textbf{Phân tích:}
+     \begin{itemize}
+        \item Mô hình có xu hướng dự đoán cao hơn một chút so với giá thực tế (+4.2\%).
+        \item Vẫn nằm trong ngưỡng chấp nhận được cho mục đích tham khảo.
+        \item Phản ánh đúng giá trị của khu dân cư được đánh giá tốt (Coral Gables) cùng với tuổi nhà và chất lượng ở mức trung bình.
+     \end{itemize}
+\end{frame}
+
+\begin{frame}{4.2 Diễn giải kết quả: Mẫu 3 (Bình dân)}
+     \textbf{Mẫu 3: Nhà ở khu vực bình dân (Hialeah)}
+      \begin{itemize}
+        \item \textbf{Đặc điểm chính:} DT đất 6k, DT sống 1.4k sqft, 50 năm tuổi, chất lượng cấu trúc 2 (thấp), xa biển.
+        \item Giá trị dự đoán bởi mô hình: \textbf{\$310,000}
+        \item Giá trị thực tế tham khảo: \$325,000
+        \item Sai số: \$310,000 - \$325,000 = -\$15,000 (\textbf{-4.6\%}) 
+      \end{itemize}
+     \textbf{Phân tích:}
+      \begin{itemize}
+        \item Mô hình dự đoán thấp hơn một chút so với giá thực tế (-4.6%).
+        \item Sai số lớn hơn so với phân khúc cao cấp nhưng vẫn ở mức chấp nhận được.
+        \item Phản ánh đúng các yếu tố làm giảm giá trị: nhà cũ (50 năm), chất lượng thấp (cấp 2), vị trí xa các yếu tố hấp dẫn (biển).
+      \end{itemize}
+\end{frame}
+
+\begin{frame}{4.2 Diễn giải chung & 4.2.3 Giá trị thực tế}
+     \textbf{Diễn giải chung về hiệu suất mô hình:}
+     \begin{itemize}
+        \item \textbf{Phân khúc giá và độ chính xác:} Mô hình hoạt động tốt nhất với phân khúc nhà cao cấp (sai số ~2.7%), độ chính xác giảm dần khi xuống phân khúc thấp hơn (trung bình ~4.2%, bình dân ~4.6%).
+        \item \textbf{Ảnh hưởng của các yếu tố địa lý:} Vị trí (khoảng cách đến biển, mặt nước, trung tâm) có tác động mạnh mẽ, phản ánh đúng sự phân tầng của thị trường Miami.
+        \item \textbf{Tác động của đặc điểm BĐS:} Tuổi nhà, chất lượng công trình, tỷ lệ diện tích sống/đất (\textit{nếu được tạo làm biến mới}) có mối tương quan mạnh với giá.
+     \end{itemize}
+      \textbf{Giá trị ứng dụng trong thực tế:}
+      \begin{itemize}
+        \item \textbf{Hỗ trợ định giá nhanh:} Cung cấp ước tính ban đầu đáng tin cậy (sai số trung bình 3-5%).
+        \item \textbf{Phát hiện giá trị bất thường:} So sánh giá niêm yết với giá dự đoán có thể cảnh báo BĐS bị định giá quá cao/thấp.
+        \item \textbf{Ứng dụng theo phân khúc:} Rất tin cậy cho phân khúc cao cấp. Cần kết hợp đánh giá chuyên gia cho phân khúc trung bình và thấp.
+        \item \textbf{Giới hạn:} Không nắm bắt được yếu tố đặc thù (view đẹp, thiết kế đặc biệt, tình trạng nội thất...) có thể ảnh hưởng đến giá trị thực.
+      \end{itemize}
+\end{frame}
+
+% --- PHẦN 5: KẾT LUẬN ---
+\section{Kết luận}
+
+\begin{frame}{5.1 Ưu điểm của cách tiếp cận}
+    \begin{itemize}
+        \item \textbf{Tiền xử lý dữ liệu toàn diện:} Xử lý outliers, chuẩn hóa, đảm bảo chất lượng dữ liệu đầu vào.
+        \item \textbf{Tạo biến mới hiệu quả (nếu có):} Ví dụ: tỷ lệ diện tích sống/đất, giá/sqft, khoảng cách trung bình có thể cải thiện hiệu suất (được đề cập trong code ví dụ Flask).
+        \item \textbf{So sánh đa dạng mô hình:} Thử nghiệm nhiều thuật toán (Linear, Ridge, Lasso, RF, GB) giúp tìm ra mô hình phù hợp nhất.
+        \item \textbf{Tối ưu hóa siêu tham số hiệu quả:} Sử dụng GridSearchCV giúp cải thiện đáng kể hiệu suất so với mô hình mặc định.
+        \item \textbf{Đánh giá đa chiều:} Sử dụng nhiều chỉ số (MAE, RMSE, R², MAPE) và phân tích trực quan (scatter plot, histogram sai số) cho cái nhìn toàn diện.
+        \item \textbf{Phân tích độ quan trọng của đặc trưng (có thể có từ GB):} Cung cấp hiểu biết sâu sắc về các yếu tố ảnh hưởng đến giá nhà.
+        \item \textbf{Khả năng ứng dụng thực tế:} Độ chính xác tốt (sai số 3-5% trên test) và có thể triển khai thành ứng dụng hỗ trợ định giá.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{5.1 Nhược điểm của cách tiếp cận}
+    \begin{itemize}
+        \item \textbf{Xử lý không tối ưu các biến địa lý:} Sử dụng tọa độ (Latitude, Longitude) hoặc khoảng cách đơn thuần chưa nắm bắt hết đặc trưng phức tạp của các khu vực, lân cận trong Miami.
+        \item \textbf{Độ chính xác không đồng đều theo phân khúc:} Hoạt động tốt với nhà cao cấp nhưng kém chính xác hơn với nhà giá thấp.
+        \item \textbf{Chưa khai thác dữ liệu ngữ cảnh bên ngoài:} Thiếu thông tin về chất lượng trường học, tỷ lệ tội phạm, tiện ích xung quanh chi tiết (quán ăn, cửa hàng), giao thông công cộng...
+        \item \textbf{Hạn chế trong việc nắm bắt yếu tố đặc biệt:} Khó đánh giá các yếu tố như view đẹp, thiết kế kiến trúc độc đáo, tình trạng sửa chữa/nâng cấp gần đây.
+        \item \textbf{Thiếu xử lý dữ liệu theo thời gian:} Chưa tính đến xu hướng biến động giá theo thời gian (tháng, năm) và các yếu tố mùa vụ có thể ảnh hưởng đến giao dịch.
+        \item \textbf{Chưa thử nghiệm các mô hình phức tạp hơn:} Các kỹ thuật như Deep Learning (Neural Networks) hay các phương pháp Ensemble tiên tiến khác (Stacking, Blending) chưa được khám phá.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{5.2 Khả năng cải tiến trong tương lai (1/2)}
+    \begin{itemize}
+        \item \textbf{1. Tích hợp dữ liệu địa lý tốt hơn:}
+            \begin{itemize}
+                \item Áp dụng kỹ thuật clustering (phân cụm) K-Means hoặc DBSCAN dựa trên tọa độ để phân vùng các khu vực có đặc điểm giá tương đồng.
+                \item Sử dụng Geohashing để tạo biến đại diện cho vị trí ô địa lý.
+                \item Tạo các biến mới dựa trên thông tin khu phố, vùng lân cận (neighborhood features).
+            \end{itemize}
+        \item \textbf{2. Bổ sung dữ liệu ngữ cảnh phong phú:}
+            \begin{itemize}
+                \item Thu thập và tích hợp dữ liệu về xếp hạng trường học, thống kê tội phạm, mật độ tiện ích (nhà hàng, siêu thị), điểm số walkability...
+                \item Dữ liệu về giao thông, kết nối công cộng.
+            \end{itemize}
+        \item \textbf{3. Áp dụng kỹ thuật mô hình hóa tiên tiến:}
+            \begin{itemize}
+                 \item Thử nghiệm các thuật toán gradient boosting nâng cao như XGBoost, LightGBM, CatBoost (thường hiệu quả hơn và nhanh hơn).
+                 \item Áp dụng mô hình Deep Learning (ví dụ: Multi-layer Perceptron) nếu dữ liệu đủ lớn và phức tạp.
+                 \item Xây dựng mô hình Ensemble kết hợp dự đoán từ nhiều mô hình khác nhau (Stacking, Blending).
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{5.2 Khả năng cải tiến trong tương lai (2/2)}
+     \begin{itemize}
+        \item \textbf{4. Tối ưu hóa mô hình theo phân khúc:}
+            \begin{itemize}
+                \item Xây dựng các mô hình riêng biệt cho từng phân khúc giá (cao cấp, trung bình, bình dân).
+                \item Áp dụng kỹ thuật sample weighting để cân bằng hiệu suất giữa các phân khúc nếu dùng mô hình chung.
+                \item Phân tích lỗi chi tiết theo từng phân khúc để xác định nguyên nhân sai số và cải thiện.
+            \end{itemize}
+        \item \textbf{5. Tích hợp phân tích dữ liệu theo thời gian:}
+             \begin{itemize}
+                 \item Xây dựng các biến thể hiện xu hướng thị trường theo thời gian (time trends).
+                 \item Phân tích và mô hình hóa yếu tố mùa vụ, chu kỳ kinh tế.
+                 \item Xây dựng mô hình không gian-thời gian (spatio-temporal models).
+             \end{itemize}
+        \item \textbf{6. Cải thiện trải nghiệm ứng dụng:}
+             \begin{itemize}
+                 \item Phát triển giao diện người dùng trực quan với bản đồ nhiệt giá, so sánh BĐS.
+                 \item Tích hợp công cụ "What-if" để người dùng thấy tác động của việc thay đổi đặc điểm đến giá.
+             \end{itemize}
+         \item \textbf{7. Xây dựng hệ thống cập nhật liên tục (MLOps):}
+            \begin{itemize}
+                 \item Tự động thu thập dữ liệu giao dịch mới, tái huấn luyện mô hình định kỳ, theo dõi hiệu suất theo thời gian thực.
+            \end{itemize}
+          \item \textbf{8. Kết hợp với phân tích định tính:}
+             \begin{itemize}
+                  \item Tích hợp đánh giá từ chuyên gia BĐS.
+                  \item Phân tích dữ liệu văn bản từ mô tả BĐS (NLP).
+                  \item Tự động đánh giá hình ảnh BĐS bằng Computer Vision.
+             \end{itemize}
+     \end{itemize}
+\end{frame}
+
+% --- SLIDE CẢM ƠN (Mô phỏng Slide cuối FaMI) ---
+{
+\setbeamertemplate{footline}{} 
+\setbeamertemplate{headline}{} 
+\setbeamertemplate{sidebar}{} 
+\setbeamercolor{background canvas}{bg=FaMI প্রধান} % Nền đỏ
+\begin{frame}[plain]
+    \begin{center}
+        \vspace*{\fill} % Đẩy nội dung vào giữa theo chiều dọc
+        {\Huge\bfseries\color{white} Thank you!}
+        \vspace{1cm}
+        \includegraphics[height=4cm]{logo_hust_round.png} % Logo tròn BKHN <<-- CẦN FILE
+        \vspace*{\fill}
+    \end{center}
+\end{frame}
+}
+
+\end{document}
