@@ -1,0 +1,33 @@
+;;;YÊU C?U BÀI T?P CU?I K?;;;;
+;;;;;;;
+;;;;;;;
+STT;STT;Lo?i yêu c?u;Yêu c?u;?i?m ch?;?i?m s?;Check;Minh ch?ng
+1;1;X? lý d? li?u (2 ?i?m);Mô t? bài toán, ??u vào, ??u ra, yêu c?u x? lý;A;1;X;Trang X - Y
+2;2;;?ánh nhãn & Ti?n x? lý d? li?u;F;0;;Trang X - Y
+3;3;;Th?ng kê d? li?u m?u;B;0,75;X;Trang X - Y
+4;4;;X? lý m?t cân b?ng d? li?u (cho bài toán phân l?p) ho?c Chuy?n ??i d? li?u (cho bài toán h?i quy);B;0,75;X;Trang X - Y
+5;5;?ánh giá mô hình (1 ?i?m);?? xu?t và l?a ch?n các tiêu chí ?ánh giá (v? ?? chính xác, t?c ??, kh? n?ng ?ng d?ng,...);C;0,5;X;Trang X - Y
+6;6;;Th?ng kê và phân tích l?i;F;0;;Trang X - Y
+7;7;C?i ti?n mô hình (4 ?i?m);Ki?n trúc mô hình 1;F;0;;Trang X - Y
+8;8;;Ki?n trúc mô hình 2;F;0;;Trang X - Y
+9;9;;Ki?n trúc mô hình 3;F;0;;Trang X - Y
+10;10;;Ki?n trúc mô hình 4;F;0;;Trang X - Y
+11;11;;Ki?n trúc mô hình 5;F;0;;Trang X - Y
+12;12;;Ki?n trúc mô hình 6;D;0,25;X;Trang X - Y
+13;13;;Ki?n trúc mô hình 7;A;1;X;Trang X - Y
+14;14;;Ki?n trúc mô hình 8;A;1;X;Trang X - Y
+15;15;?óng gói mô hình (3 ?i?m);Có s? d?ng mô hình tiên ti?n trong 3 n?m tr? l?i ?ây (ch? ra paper liên quan);A;1;X;Trang X - Y
+16;16;;Có kh? n?ng ?ng d?ng vào m?t ng? c?nh c? th? (?ng d?ng vào bài toán nghi?p v? nào, ai là ng??i s? d?ng);A;1;X;Trang X - Y
+17;17;;Các ch? s? ?ánh giá mô hình ?? ?i?u ki?n ?? ?ng d?ng vào th?c t?;A;1;X;Trang X - Y
+18;18;;?óng gói giao di?n demo ch??ng trình;;;;
+19;19;;Làm slide báo cáo;;;;
+20;20;;Thuy?t trình trên l?p;C;0,5;X;Trang X - Y
+;;;T?ng ?i?m/20;;8,75;0;
+;;;T?ng ?i?m/10;;4,5;;
+;;;;;;;
+;;;;;;;
+;;;;A;1;;
+;;;;B;0,75;;
+;;;;C;0,5;;
+;;;;D;0,25;;
+;;;;F;0;;
