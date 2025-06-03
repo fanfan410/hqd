@@ -16,10 +16,6 @@ from config import *
 import warnings
 from sklearn.exceptions import ConvergenceWarning
 import scipy.stats as stats
-from lightgbm import LGBMRegressor
-from xgboost import XGBRegressor
-from catboost import CatBoostRegressor
-from category_encoders import CatBoostEncoder
 
 # Định nghĩa các thư mục
 MODEL_DIR = os.path.join('models', 'trained')
@@ -51,30 +47,7 @@ BASE_MODELS = {
         min_samples_leaf=4,
         subsample=0.8,
         random_state=RANDOM_STATE
-    ),
-    'XGBoost': XGBRegressor(
-        n_estimators=200,
-        learning_rate=0.05,
-        max_depth=8,
-        subsample=0.8,
-        random_state=RANDOM_STATE,
-        n_jobs=N_JOBS,
-        tree_method='hist',
-        device = 'cuda',
-        predictor='gpu_predictor',
-        gpu_id=0
-    ),
-    'LightGBM': LGBMRegressor(
-        n_estimators=200,
-        learning_rate=0.05,
-        max_depth=8,
-        subsample=0.8,
-        random_state=RANDOM_STATE,
-        n_jobs=N_JOBS,
-        device='gpu',
-        gpu_platform_id=0,
-        gpu_device_id=0
-    ),
+    )
 }
 
 def preprocess_features(X_train, X_test, numeric_features, categorical_features):
@@ -83,14 +56,14 @@ def preprocess_features(X_train, X_test, numeric_features, categorical_features)
     Sử dụng RobustScaler cho biến số để xử lý outliers tốt hơn.
     """
     from sklearn.compose import ColumnTransformer
-    from sklearn.preprocessing import RobustScaler
+    from sklearn.preprocessing import OneHotEncoder, RobustScaler
     
     numeric_transformer = Pipeline(steps=[
-        ('scaler', RobustScaler())
+        ('scaler', RobustScaler())  # Sử dụng RobustScaler thay vì StandardScaler
     ])
     
     categorical_transformer = Pipeline(steps=[
-        ('catboost', CatBoostEncoder())
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))  # Bỏ tham số sparse/sparse_output
     ])
     
     preprocessor = ColumnTransformer(
@@ -98,7 +71,7 @@ def preprocess_features(X_train, X_test, numeric_features, categorical_features)
             ('num', numeric_transformer, numeric_features),
             ('cat', categorical_transformer, categorical_features)
         ],
-        sparse_threshold=0
+        sparse_threshold=0  # Đảm bảo output là dense matrix
     )
     
     return preprocessor
@@ -424,7 +397,10 @@ def plot_combined_model_analysis(model, X_test, y_test, model_name):
             if name == 'num':
                 feature_names.extend(cols)
             elif name == 'cat':
-                feature_names.extend(cols)  # CatBoostEncoder: chỉ cần tên cột gốc
+                ohe = trans.named_steps['onehot']
+                for i, col in enumerate(cols):
+                    categories = ohe.categories_[i]
+                    feature_names.extend([f"{col}_{cat}" for cat in categories])
         
         indices = np.argsort(importances)[::-1]
         top_n = 10  # Chỉ hiển thị top 10 features
@@ -535,7 +511,13 @@ def feature_importance_analysis(model, X_train, model_name):
             if name == 'num':
                 feature_names.extend(cols)
             elif name == 'cat':
-                feature_names.extend(cols)  # CatBoostEncoder: chỉ cần tên cột gốc
+                # Lấy tên các categories sau khi one-hot encoding
+                ohe = trans.named_steps['onehot']
+                cat_features = []
+                for i, col in enumerate(cols):
+                    categories = ohe.categories_[i]
+                    cat_features.extend([f"{col}_{cat}" for cat in categories])
+                feature_names.extend(cat_features)
         
         # Lấy độ quan trọng của features
         if hasattr(model.named_steps['model'], 'feature_importances_'):
