@@ -553,6 +553,21 @@ def feature_importance_analysis(model, X_train, model_name):
     except Exception as e:
         logger.error(f"Lỗi khi phân tích độ quan trọng của features: {str(e)}")
 
+def train_final_model(X_train, y_train, preprocessor, best_params):
+    """
+    Huấn luyện mô hình cuối cùng với các tham số tốt nhất.
+    """
+    from sklearn.ensemble import GradientBoostingRegressor
+    from sklearn.pipeline import Pipeline
+
+    model = GradientBoostingRegressor(**best_params)
+    pipeline = Pipeline([
+        ('preprocessor', preprocessor),
+        ('model', model)
+    ])
+    pipeline.fit(X_train, y_train)
+    return pipeline
+
 if __name__ == "__main__":
     try:
         # Import các module cần thiết

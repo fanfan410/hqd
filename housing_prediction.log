@@ -3304,3 +3304,52 @@ Top 10 features quan tr\u1ecdng nh\u1ea5t c\u1ee7a Random Forest:
 2025-06-02 21:13:26,918 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
 2025-06-02 21:13:26,918 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
 2025-06-02 21:13:26,918 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 01:51:12,810 - __main__ - INFO - B\u1eaft \u0111\u1ea7u pipeline
+2025-06-04 01:51:12,810 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-04 01:51:12,842 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-04 01:51:12,843 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-04 01:51:12,843 - data_loader - INFO - B\u1eaft \u0111\u1ea7u khám phá d\u1eef li\u1ec7u (EDA)
+2025-06-04 01:51:16,151 - data_loader - INFO - Hoàn thành EDA
+2025-06-04 01:51:16,151 - data_loader - INFO - B\u1eaft \u0111\u1ea7u phân tích giá tr\u1ecb thi\u1ebfu
+2025-06-04 01:51:16,155 - data_loader - INFO - Hoàn thành phân tích giá tr\u1ecb thi\u1ebfu
+2025-06-04 01:51:16,475 - __main__ - INFO - B\u1eaft \u0111\u1ea7u ti\u1ec1n x\u1eed lý d\u1eef li\u1ec7u
+2025-06-04 01:51:16,475 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-04 01:51:16,477 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-04 01:51:16,478 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-04 01:51:16,900 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-04 01:51:18,450 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-04 01:51:18,453 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-04 01:51:18,456 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-04 01:51:18,456 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 01:51:18,456 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 01:51:19,855 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:19,866 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:20,370 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:20,383 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:21,067 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:21,077 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:51:24,906 - __main__ - INFO - T\u1ea1o báo cáo tr\u1ef1c quan hóa
+2025-06-04 01:51:24,906 - visualization - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o báo cáo tr\u1ef1c quan hóa
+2025-06-04 01:51:24,906 - visualization - INFO - B\u1eaft \u0111\u1ea7u v\u1ebd phân ph\u1ed1i c\u1ee7a bi\u1ebfn m\u1ee5c tiêu
+2025-06-04 01:51:25,756 - visualization - INFO - Hoàn thành v\u1ebd phân ph\u1ed1i c\u1ee7a bi\u1ebfn m\u1ee5c tiêu
+2025-06-04 01:51:25,756 - visualization - INFO - B\u1eaft \u0111\u1ea7u v\u1ebd boxplot cho các features s\u1ed1
+2025-06-04 01:51:31,416 - visualization - INFO - Hoàn thành v\u1ebd boxplot cho các features s\u1ed1
+2025-06-04 01:51:31,416 - visualization - INFO - B\u1eaft \u0111\u1ea7u v\u1ebd ma tr\u1eadn scatter plot
+2025-06-04 01:52:27,421 - visualization - INFO - Hoàn thành v\u1ebd ma tr\u1eadn scatter plot
+2025-06-04 01:52:27,421 - visualization - INFO - B\u1eaft \u0111\u1ea7u v\u1ebd bi\u1ec3u \u0111\u1ed3 m\u1ed1i quan h\u1ec7 features-target
+2025-06-04 01:52:47,845 - visualization - INFO - Hoàn thành v\u1ebd bi\u1ec3u \u0111\u1ed3 m\u1ed1i quan h\u1ec7 features-target
+2025-06-04 01:52:47,845 - visualization - INFO - B\u1eaft \u0111\u1ea7u v\u1ebd bi\u1ec3u \u0111\u1ed3 m\u1ed1i quan h\u1ec7 categorical-target
+2025-06-04 01:52:47,938 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:47,948 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:48,319 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:48,328 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:48,771 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:48,780 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-06-04 01:52:49,152 - visualization - INFO - Hoàn thành v\u1ebd bi\u1ec3u \u0111\u1ed3 m\u1ed1i quan h\u1ec7 categorical-target
+2025-06-04 01:52:49,153 - visualization - INFO - Hoàn thành t\u1ea1o báo cáo tr\u1ef1c quan hóa
+2025-06-04 01:52:49,153 - __main__ - INFO - So sánh các mô hình c\u01a1 b\u1ea3n
+2025-06-04 01:52:49,153 - __main__ - ERROR - L\u1ed7i trong pipeline: compare_base_models() missing 2 required positional arguments: 'y_test' and 'preprocessor'
+Traceback (most recent call last):
+  File "D:\Code\hqd\main.py", line 76, in main
+    model_comparison_results = compare_base_models(X_train, y_train, preprocessor)
+TypeError: compare_base_models() missing 2 required positional arguments: 'y_test' and 'preprocessor'
