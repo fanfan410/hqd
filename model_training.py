@@ -6,7 +6,7 @@ import logging
 import time
 import os
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor, StackingRegressor
 from sklearn.model_selection import train_test_split, cross_val_score, learning_curve, GridSearchCV
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error, mean_absolute_percentage_error
 from sklearn.pipeline import Pipeline
@@ -61,8 +61,6 @@ BASE_MODELS = {
         n_jobs=N_JOBS,
         tree_method='hist',
         device = 'cuda',
-        predictor='gpu_predictor',
-        gpu_id=0
     ),
     'LightGBM': LGBMRegressor(
         n_estimators=200,
@@ -75,6 +73,16 @@ BASE_MODELS = {
         gpu_platform_id=0,
         gpu_device_id=0
     ),
+    'Stacking Ensemble': StackingRegressor(
+        estimators=[
+            ('rf', RandomForestRegressor(n_estimators=100, max_depth=10, random_state=RANDOM_STATE, n_jobs=N_JOBS)),
+            ('xgb', XGBRegressor(n_estimators=100, max_depth=8, learning_rate=0.05, random_state=RANDOM_STATE, n_jobs=N_JOBS, tree_method='hist', device='cuda')),
+            ('ridge', Ridge(alpha=1.0, max_iter=10000, random_state=RANDOM_STATE))
+        ],
+        final_estimator=Ridge(alpha=1.0, max_iter=10000, random_state=RANDOM_STATE),
+        n_jobs=N_JOBS,
+        passthrough=False
+    )
 }
 
 def preprocess_features(X_train, X_test, numeric_features, categorical_features):

@@ -3443,3 +3443,51 @@ TypeError: compare_base_models() missing 2 required positional arguments: 'y_tes
 2025-06-04 03:21:04,506 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
 2025-06-04 03:21:04,507 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
 2025-06-04 03:21:04,507 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:39:32,237 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-04 03:39:32,265 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-04 03:39:32,266 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-04 03:39:32,267 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-04 03:39:32,270 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-04 03:39:32,271 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-04 03:39:32,961 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-04 03:39:34,527 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-04 03:39:34,530 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-04 03:39:34,533 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-04 03:39:34,534 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:39:34,534 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:44:53,319 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-04 03:44:53,342 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-04 03:44:53,342 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-04 03:44:53,343 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-04 03:44:53,346 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-04 03:44:53,350 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-04 03:44:53,919 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-04 03:44:55,436 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-04 03:44:55,440 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-04 03:44:55,442 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-04 03:44:55,443 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:44:55,443 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:49:42,568 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-04 03:49:42,592 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-04 03:49:42,593 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-04 03:49:42,594 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-04 03:49:42,597 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-04 03:49:42,599 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-04 03:49:43,244 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-04 03:49:44,865 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-04 03:49:44,869 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-04 03:49:44,871 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-04 03:49:44,872 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:49:44,873 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:52:02,371 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-04 03:52:02,396 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-04 03:52:02,396 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-04 03:52:02,397 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-04 03:52:02,401 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-04 03:52:02,404 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-04 03:52:03,012 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-04 03:52:04,676 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-04 03:52:04,680 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-04 03:52:04,682 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-04 03:52:04,684 - preprocessing - INFO - T\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
+2025-06-04 03:52:04,684 - preprocessing - INFO - \u0110ã t\u1ea1o b\u1ed9 ti\u1ec1n x\u1eed lý
