@@ -25,7 +25,7 @@ os.makedirs(MODEL_TRAINING_VIS_DIR, exist_ok=True)
 
 logger = logging.getLogger(__name__)
 
-# Danh sách các mô hình cần thử nghiệm
+# Danh sách các mô hình cần thử nghiệm (đã bỏ XGBoost)
 BASE_MODELS = {
     'Linear Regression': LinearRegression(),
     'Ridge Regression': Ridge(alpha=10.0, max_iter=20000),
@@ -77,9 +77,7 @@ def preprocess_features(X_train, X_test, numeric_features, categorical_features)
     return preprocessor
 
 def compare_base_models(X_train, y_train, X_test, y_test, preprocessor, models=None):
-    """
-    So sánh các mô hình cơ bản và trả về mô hình tốt nhất.
-    """
+    """So sánh các mô hình cơ bản với xử lý lỗi tốt hơn."""
     if models is None:
         models = BASE_MODELS
     
@@ -109,22 +107,10 @@ def compare_base_models(X_train, y_train, X_test, y_test, preprocessor, models=N
                 'MAPE': mean_absolute_percentage_error(y_test, y_pred) * 100
             }
             
-            # Cross-validation
-            cv_scores = cross_val_score(
-                pipeline, X_train, y_train,
-                cv=CV_FOLDS,
-                scoring='r2',
-                n_jobs=N_JOBS
-            )
-            
             # Lưu kết quả
             results[name] = {
                 'pipeline': pipeline,
                 'metrics': metrics,
-                'cv_scores': {
-                    'mean': cv_scores.mean(),
-                    'std': cv_scores.std()
-                },
                 'training_time': training_time
             }
             
@@ -138,27 +124,18 @@ def compare_base_models(X_train, y_train, X_test, y_test, preprocessor, models=N
         raise Exception("Không có mô hình nào được huấn luyện thành công")
     
     # Vẽ biểu đồ so sánh
-    plot_model_comparison(results)
+    try:
+        plot_model_comparison(results)
+    except Exception as e:
+        print(f"Lỗi khi vẽ biểu đồ so sánh: {str(e)}")
     
-    # Chọn mô hình tốt nhất dựa trên R2
-    best_model_name = max(results.items(), 
-                         key=lambda x: x[1]['metrics']['R2'])[0]
+    # Vẽ boxplot RMSE CV
+    try:
+        plot_rmse_cv_boxplot(results, X_train, y_train)
+    except Exception as e:
+        print(f"Lỗi khi vẽ boxplot RMSE CV: {str(e)}")
     
-    # Chỉ vẽ learning curve cho mô hình tốt nhất
-    print(f"\nPhân tích learning curve cho mô hình tốt nhất ({best_model_name})...")
-    learning_analysis = plot_learning_curve(
-        results[best_model_name]['pipeline'], 
-        X_train, y_train, 
-        f"Learning Curve - {best_model_name}"
-    )
-    
-    # In thông tin phân tích learning curve
-    print("\nPhân tích learning curve:")
-    print(f"- Khoảng cách lớn nhất giữa train và test: {learning_analysis['gap_analysis']['max_gap']:.3f}")
-    print(f"- Khoảng cách trung bình: {learning_analysis['gap_analysis']['avg_gap']:.3f}")
-    print(f"- Tỷ lệ tốc độ học (train/test): {learning_analysis['learning_rate']['rate_ratio']:.2f}")
-    
-    return best_model_name, results
+    return max(results.items(), key=lambda x: x[1]['metrics']['R2'])[0], results
 
 def tune_hyperparameters(X_train, y_train, preprocessor, base_model, param_grid):
     """
@@ -401,13 +378,37 @@ def plot_combined_model_analysis(model, X_test, y_test, model_name):
                 for i, col in enumerate(cols):
                     categories = ohe.categories_[i]
                     feature_names.extend([f"{col}_{cat}" for cat in categories])
-        
         indices = np.argsort(importances)[::-1]
         top_n = 10  # Chỉ hiển thị top 10 features
-        ax4.barh(range(top_n), importances[indices][:top_n], color='blue')  # Đổi sang màu xanh nước biển
+        ax4.barh(range(top_n), importances[indices][:top_n], color='blue')
         ax4.set_yticks(range(top_n))
         ax4.set_yticklabels([feature_names[i] for i in indices[:top_n]])
         ax4.set_xlabel('Độ Quan Trọng')
+        ax4.set_title('Top 10 Đặc Trưng Quan Trọng Nhất')
+    elif hasattr(model.named_steps['model'], 'coef_'):
+        importances = np.abs(model.named_steps['model'].coef_)
+        preprocessor = model.named_steps['preprocessor']
+        if hasattr(preprocessor, 'get_feature_names_out'):
+            feature_names = preprocessor.get_feature_names_out()
+        else:
+            feature_names = []
+            for name, trans, cols in preprocessor.transformers_:
+                if name == 'num':
+                    feature_names.extend(cols)
+                elif name == 'cat':
+                    ohe = trans.named_steps['onehot']
+                    for i, col in enumerate(cols):
+                        categories = ohe.categories_[i]
+                        feature_names.extend([f"{col}_{cat}" for cat in categories])
+        min_len = min(len(importances), len(feature_names))
+        importances = importances[:min_len]
+        feature_names = feature_names[:min_len]
+        indices = np.argsort(importances)[::-1]
+        top_n = 10
+        ax4.barh(range(top_n), importances[indices][:top_n], color='blue')
+        ax4.set_yticks(range(top_n))
+        ax4.set_yticklabels([feature_names[i] for i in indices[:top_n]])
+        ax4.set_xlabel('Hệ số hồi quy (|coef|)')
         ax4.set_title('Top 10 Đặc Trưng Quan Trọng Nhất')
     else:
         ax4.text(0.5, 0.5, 'Không có thông tin về độ quan trọng của đặc trưng\ncho loại mô hình này',
@@ -432,44 +433,30 @@ def plot_combined_model_analysis(model, X_test, y_test, model_name):
     }
 
 def plot_model_comparison(results):
-    """Vẽ biểu đồ so sánh các mô hình."""
-    # Chuẩn bị dữ liệu
-    model_names = list(results.keys())
-    metrics = ['MAE', 'RMSE', 'R2']
-    
-    # Tạo figure với 2 subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
-    
-    # 1. So sánh metrics
-    x = np.arange(len(model_names))
-    width = 0.25
-    
-    for i, metric in enumerate(metrics):
-        values = [results[name]['metrics'][metric] for name in model_names]
-        if metric == 'R2':
-            ax1.bar(x + i*width, values, width, label=metric)
-            ax1.set_ylim(0, 1)
-        else:
-            ax1.bar(x + i*width, values, width, label=metric)
-    
-    ax1.set_title('So Sánh Hiệu Suất Các Mô Hình')
-    ax1.set_xticks(x + width)
-    ax1.set_xticklabels(model_names, rotation=45, ha='right')
-    ax1.legend()
-    ax1.set_ylabel('Giá Trị')
-    
-    # 2. So sánh thời gian huấn luyện
-    training_times = [results[name]['training_time'] for name in model_names]
-    ax2.bar(x, training_times, color='blue')  # Đổi sang màu xanh nước biển
-    ax2.set_title('So Sánh Thời Gian Huấn Luyện')
-    ax2.set_xticks(x)
-    ax2.set_xticklabels(model_names, rotation=45, ha='right')
-    ax2.set_ylabel('Thời Gian (giây)')
-    
-    plt.tight_layout()
-    plt.savefig(os.path.join(MODEL_TRAINING_VIS_DIR, 'model_comparison.png'),
-                dpi=DPI, format=SAVE_FORMAT, bbox_inches='tight')
-    plt.close()
+    """Vẽ biểu đồ so sánh các mô hình với tối ưu bộ nhớ và chỉ giữ lại biểu đồ hiệu suất."""
+    try:
+        model_names = list(results.keys())
+        metrics = ['MAE', 'RMSE', 'R2']
+        x = np.arange(len(model_names))
+        width = 0.25
+        plt.figure(figsize=(8, 4))
+        for i, metric in enumerate(metrics):
+            values = [results[name]['metrics'][metric] for name in model_names]
+            if metric == 'R2':
+                plt.bar(x + i*width, values, width, label=metric)
+                plt.ylim(0, 1)
+            else:
+                plt.bar(x + i*width, values, width, label=metric)
+        plt.title('So Sánh Hiệu Suất Các Mô Hình')
+        plt.xticks(x + width, model_names, rotation=30, ha='right', fontsize=9)
+        plt.legend()
+        plt.ylabel('Giá Trị')
+        plt.tight_layout()
+        plt.savefig(os.path.join(MODEL_TRAINING_VIS_DIR, 'model_comparison.png'), dpi=100, format='png', bbox_inches='tight')
+        plt.close('all')
+    except Exception as e:
+        print(f"Lỗi khi vẽ biểu đồ so sánh: {str(e)}")
+        plt.close('all')
 
 def evaluate_model(model, X_test, y_test, model_name):
     """
@@ -507,31 +494,45 @@ def feature_importance_analysis(model, X_train, model_name):
     try:
         # Lấy tên features sau khi preprocess
         feature_names = []
-        for name, trans, cols in model.named_steps['preprocessor'].transformers_:
-            if name == 'num':
-                feature_names.extend(cols)
-            elif name == 'cat':
-                # Lấy tên các categories sau khi one-hot encoding
-                ohe = trans.named_steps['onehot']
-                cat_features = []
-                for i, col in enumerate(cols):
-                    categories = ohe.categories_[i]
-                    cat_features.extend([f"{col}_{cat}" for cat in categories])
-                feature_names.extend(cat_features)
-        
-        # Lấy độ quan trọng của features
-        if hasattr(model.named_steps['model'], 'feature_importances_'):
-            importances = model.named_steps['model'].feature_importances_
-        elif hasattr(model.named_steps['model'], 'coef_'):
-            importances = np.abs(model.named_steps['model'].coef_)
+        preprocessor = model.named_steps['preprocessor']
+        # Nếu preprocessor có get_feature_names_out thì dùng luôn
+        if hasattr(preprocessor, 'get_feature_names_out'):
+            feature_names = preprocessor.get_feature_names_out()
         else:
-            logger.warning(f"Mô hình {model_name} không có thuộc tính feature_importances_ hoặc coef_")
+            for name, trans, cols in preprocessor.transformers_:
+                if name == 'num':
+                    feature_names.extend(cols)
+                elif name == 'cat':
+                    ohe = trans.named_steps['onehot']
+                    for i, col in enumerate(cols):
+                        categories = ohe.categories_[i]
+                        feature_names.extend([f"{col}_{cat}" for cat in categories])
+        # Lấy độ quan trọng của features
+        importances = None
+        if hasattr(model.named_steps['model'], 'coef_'):
+            importances = model.named_steps['model'].coef_
+            if hasattr(importances, 'ndim') and importances.ndim > 1:
+                importances = importances[0]
+            importances = np.abs(importances)
+        elif hasattr(model.named_steps['model'], 'feature_importances_'):
+            importances = model.named_steps['model'].feature_importances_
+        else:
+            print(f"Mô hình {model_name} không có thuộc tính feature_importances_ hoặc coef_")
             return
-        
-        # Sắp xếp features theo độ quan trọng
+        # DEBUG
+        print("DEBUG: Số chiều coef_:", len(importances))
+        print("DEBUG: Số feature:", len(feature_names))
+        print("DEBUG: feature_names:", feature_names[:10])
+        print("DEBUG: importances:", importances[:10])
+        # Kiểm tra số chiều
+        if len(importances) != len(feature_names):
+            print(f"[CẢNH BÁO] Số chiều coef_ ({len(importances)}) không khớp số feature ({len(feature_names)}). Sẽ chỉ hiển thị theo số nhỏ nhất.")
+            min_len = min(len(importances), len(feature_names))
+            importances = importances[:min_len]
+            feature_names = feature_names[:min_len]
+        if np.all(importances == 0):
+            print(f"[CẢNH BÁO] Tất cả hệ số hồi quy (coef_) đều bằng 0. Mô hình không học được gì từ dữ liệu!")
         indices = np.argsort(importances)[::-1]
-        
-        # Vẽ biểu đồ
         plt.figure(figsize=(12, 6))
         plt.title(f'Feature Importance - {model_name}')
         plt.bar(range(len(importances)), importances[indices])
@@ -539,19 +540,70 @@ def feature_importance_analysis(model, X_train, model_name):
                   [feature_names[i] for i in indices],
                   rotation=45, ha='right')
         plt.tight_layout()
-        
-        # Lưu biểu đồ
         plt.savefig(os.path.join(MODEL_TRAINING_VIS_DIR, f'feature_importance_{model_name.lower().replace(" ", "_")}.png'),
                     dpi=DPI, format=SAVE_FORMAT, bbox_inches='tight')
         plt.close()
-        
-        # In top features
-        logger.info(f"\nTop 10 features quan trọng nhất của {model_name}:")
+        print(f"\nTop 10 features quan trọng nhất của {model_name}:")
         for i in range(min(10, len(indices))):
-            logger.info(f"{i+1}. {feature_names[indices[i]]}: {importances[indices[i]]:.4f}")
-            
+            print(f"{i+1}. {feature_names[indices[i]]}: {importances[indices[i]]:.4f}")
     except Exception as e:
-        logger.error(f"Lỗi khi phân tích độ quan trọng của features: {str(e)}")
+        print(f"Lỗi khi phân tích độ quan trọng của features: {str(e)}")
+
+def plot_rmse_cv_boxplot(results, X_train, y_train):
+    """Vẽ boxplot so sánh RMSE CV với tối ưu bộ nhớ."""
+    try:
+        model_names = []
+        rmse_cv_values = []
+        for name, result in results.items():
+            try:
+                pipeline = result['pipeline']
+                cv_rmse = []
+                for i in range(CV_FOLDS):
+                    X_train_fold, X_val_fold, y_train_fold, y_val_fold = train_test_split(
+                        X_train, y_train, test_size=1/CV_FOLDS, random_state=i
+                    )
+                    pipeline.fit(X_train_fold, y_train_fold)
+                    y_pred = pipeline.predict(X_val_fold)
+                    rmse = np.sqrt(mean_squared_error(y_val_fold, y_pred))
+                    cv_rmse.append(rmse)
+                model_names.extend([name] * len(cv_rmse))
+                rmse_cv_values.extend(cv_rmse)
+            except Exception as e:
+                print(f"Lỗi khi tính RMSE CV cho {name}: {str(e)}")
+                continue
+        if not model_names:
+            print("Không có dữ liệu để vẽ boxplot")
+            return
+        df_box = pd.DataFrame({
+            'Mô hình': model_names,
+            'RMSE CV': rmse_cv_values
+        })
+        plt.figure(figsize=(8, 4))
+        sns.boxplot(x='Mô hình', y='RMSE CV', data=df_box)
+        plt.title('Boxplot so sánh RMSE CV của các mô hình')
+        plt.ylabel('RMSE CV')
+        plt.xlabel('Mô hình')
+        plt.xticks(rotation=30, fontsize=9)
+        plt.tight_layout()
+        plt.savefig(os.path.join(MODEL_TRAINING_VIS_DIR, 'boxplot_rmse_cv_models.png'), dpi=100, format='png')
+        plt.close('all')
+    except Exception as e:
+        print(f"Lỗi khi vẽ boxplot RMSE CV: {str(e)}")
+        plt.close('all')
+
+def print_model_comparison_table(results):
+    print("\nKết quả Cross-Validation của các mô hình\n")
+    print("| Mô hình             | RMSE CV Trung bình | Độ lệch chuẩn RMSE CV | R² trên tập huấn luyện |")
+    print("|---------------------|-------------------|-----------------------|------------------------|")
+    for name, result in results.items():
+        rmse_cv = result.get('rmse_cv', None)
+        std_cv = result.get('std_rmse_cv', None)
+        r2_train = result.get('r2_train', None)
+        # Format các giá trị
+        rmse_cv_str = f"${rmse_cv:,.2f}" if rmse_cv is not None else "-"
+        std_cv_str = f"${std_cv:,.2f}" if std_cv is not None else "-"
+        r2_train_str = f"{r2_train:.3f}" if r2_train is not None else "-"
+        print(f"| {name:<19} | {rmse_cv_str:<17} | {std_cv_str:<21} | {r2_train_str:<24} |")
 
 if __name__ == "__main__":
     try:
@@ -561,38 +613,37 @@ if __name__ == "__main__":
         
         print("\n=== BẮT ĐẦU HUẤN LUYỆN MÔ HÌNH ===\n")
         
-        # 1. Load và tiền xử lý dữ liệu
+        # 1. Load và tiền xử lý dữ liệu - chỉ chạy 1 lần
         df = load_data()
-        df, X_train, X_test, y_train, y_test, numeric_features, categorical_features, _ = run_preprocessing_steps(df)
+        df, X_train, X_test, y_train, y_test, numeric_features, categorical_features, preprocessor = run_preprocessing_steps(df, verbose=True)
         print(f"Dữ liệu: {X_train.shape[0]:,} mẫu huấn luyện, {X_test.shape[0]:,} mẫu kiểm tra")
         
         # 2. So sánh các mô hình
         print("\n=== KẾT QUẢ CÁC MÔ HÌNH ===")
-        preprocessor = preprocess_features(X_train, X_test, numeric_features, categorical_features)
-        best_model_name, results = compare_base_models(X_train, y_train, X_test, y_test, preprocessor)
-        
-        # In kết quả ngắn gọn của từng mô hình
-        for name, result in results.items():
-            metrics = result['metrics']
-            print(f"\n{name}:")
-            print(f"R²: {metrics['R2']:.3f} | MAE: {metrics['MAE']:,.0f}$ | MAPE: {metrics['MAPE']:.1f}%")
-        
-        # 3. Kết quả mô hình tốt nhất
-        print(f"\n=== MÔ HÌNH TỐT NHẤT: {best_model_name} ===")
-        best_model = results[best_model_name]['pipeline']
-        metrics = evaluate_model(best_model, X_test, y_test, best_model_name)
-        
-        print(f"\nMetrics:")
-        print(f"R²: {metrics['R2']:.3f}")
-        print(f"MAE: {metrics['MAE']:,.0f}$")
-        print(f"MAPE: {metrics['MAPE']:.1f}%")
-        
-        # 4. Lưu mô hình
-        model_path = os.path.join(MODEL_DIR, 'best_model.pkl')
-        joblib.dump(best_model, model_path)
-        print(f"\nĐã lưu mô hình vào: {model_path}")
-        print(f"Biểu đồ đánh giá được lưu trong: {MODEL_TRAINING_VIS_DIR}")
-        
+        try:
+            preprocessor = preprocess_features(X_train, X_test, numeric_features, categorical_features)
+            best_model_name, results = compare_base_models(X_train, y_train, X_test, y_test, preprocessor)
+            
+            # In bảng so sánh
+            print_model_comparison_table(results)
+            
+            # Phân tích chi tiết mô hình tốt nhất
+            print(f"\n=== PHÂN TÍCH CHI TIẾT: {best_model_name} ===")
+            try:
+                best_pipeline = results[best_model_name]['pipeline']
+                metrics = evaluate_model(best_pipeline, X_test, y_test, best_model_name)
+                
+                # Lưu mô hình tốt nhất
+                model_path = os.path.join(MODEL_DIR, 'best_model.pkl')
+                joblib.dump(best_pipeline, model_path)
+                print(f"\nĐã lưu mô hình tốt nhất vào: {model_path}")
+                
+            except Exception as e:
+                print(f"Lỗi khi phân tích mô hình tốt nhất: {str(e)}")
+            
+        except Exception as e:
+            print(f"Lỗi trong quá trình huấn luyện mô hình: {str(e)}")
+            
     except Exception as e:
-        print(f"\nLỗi: {str(e)}")
+        print(f"Lỗi tổng thể: {str(e)}")
         raise 
