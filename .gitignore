@@ -8,6 +8,10 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+<<<<<<< HEAD
+=======
+env/
+>>>>>>> 0651e4f0aa58f15e68e671a0268b6717d7b0932e
 build/
 develop-eggs/
 dist/
@@ -23,6 +27,7 @@ var/
 .installed.cfg
 *.egg
 
+<<<<<<< HEAD
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
@@ -38,6 +43,54 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .nox/
+=======
+# Virtual environments
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Matplotlib, Seaborn, Plotly, and other visualization outputs
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.eps
+*.gif
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# Python egg metadata
+*.egg-info/
+.eggs/
+
+# Coverage reports
+htmlcov/
+.tox/
+>>>>>>> 0651e4f0aa58f15e68e671a0268b6717d7b0932e
 .coverage
 .coverage.*
 .cache
@@ -45,6 +98,7 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
+<<<<<<< HEAD
 .pytest_cache/
 
 # Jupyter Notebook
@@ -90,3 +144,15 @@ env/
 *.pkl
 output.txt
 *.pdf 
+=======
+
+# Test output
+junit-*.xml
+
+# Misc
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+>>>>>>> 0651e4f0aa58f15e68e671a0268b6717d7b0932e

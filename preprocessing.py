@@ -140,7 +140,7 @@ def transform_data(X_train, X_test, preprocessor):
     
     return X_train_transformed, X_test_transformed 
 
-def run_preprocessing_steps(df):
+def run_preprocessing_steps(df, verbose=False):
     """
     Thực hiện các bước tiền xử lý dữ liệu (xử lý giá trị thiếu, outliers, tạo biến mới, chuẩn hóa, chia train/test) và trả về các biến cần thiết cho các bước tiếp theo.
     Trả về: (df, X_train, X_test, y_train, y_test, numeric_features, categorical_features, preprocessor).
@@ -354,7 +354,7 @@ if __name__ == "__main__":
     from data_loader import load_data
     df = load_data()
     # Chạy preprocessing và lấy các biến cần thiết
-    df, X_train, X_test, y_train, y_test, numeric_features, categorical_features, preprocessor = run_preprocessing_steps(df)
+    df, X_train, X_test, y_train, y_test, numeric_features, categorical_features, preprocessor = run_preprocessing_steps(df, verbose=True)
     # 1.3: Phân tích dữ liệu mẫu (trước chuyển đổi)
     analyze_training_data(X_train, y_train, numeric_features, categorical_features)
     # 1.4: Chuyển đổi dữ liệu (log transform)
