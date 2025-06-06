@@ -4525,3 +4525,456 @@ Top 10 features quan tr\u1ecdng nh\u1ea5t c\u1ee7a Elastic Net:
 2025-06-05 23:58:50,017 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
 2025-06-05 23:58:50,017 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
 2025-06-05 23:58:50,023 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 00:42:04,545 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 00:42:04,545 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 00:42:04,545 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 00:42:05,165 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 00:42:06,972 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 00:42:06,972 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 00:42:06,972 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 00:42:10,772 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 00:42:10,777 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 00:42:10,778 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 00:42:11,190 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 00:42:12,810 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 00:42:12,816 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 00:42:12,819 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 00:52:58,459 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 00:52:58,469 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 00:52:58,469 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 00:52:59,254 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 00:53:01,059 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 00:53:01,063 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 00:53:01,065 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 00:53:05,269 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 00:53:05,269 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 00:53:05,273 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 00:53:05,720 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 00:53:07,439 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 00:53:07,443 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 00:53:07,446 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:02:10,494 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:02:10,499 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:02:10,499 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:02:11,044 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:02:12,759 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:02:12,762 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:02:12,762 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:02:16,709 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:02:16,719 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:02:16,719 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:02:17,154 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:02:18,799 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:02:18,799 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:02:18,804 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:07:54,838 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:07:54,848 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:07:54,848 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:07:55,478 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:07:57,339 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:07:57,339 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:07:57,349 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:08:01,103 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:08:01,103 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:08:01,108 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:08:01,508 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:08:03,350 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:08:03,353 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:08:03,357 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:15:39,858 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:15:39,858 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:15:39,858 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:15:40,448 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:15:42,273 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:15:42,278 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:15:42,278 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 01:15:46,228 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 01:15:46,232 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 01:15:46,238 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 01:15:46,652 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 01:15:48,348 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 01:15:48,348 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 01:15:48,352 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 02:20:56,638 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 02:20:56,715 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 02:20:56,715 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 02:20:56,717 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 02:20:56,720 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 02:20:56,721 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 02:20:57,664 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 02:20:59,407 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 02:20:59,414 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 02:20:59,415 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:26:22,609 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:26:22,749 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:26:22,749 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:26:22,752 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:26:22,765 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:26:22,768 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:26:23,825 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:26:25,727 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:26:25,735 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:26:25,739 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:28:27,542 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:28:27,639 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:28:27,640 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:28:27,640 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:28:27,644 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:28:27,646 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:28:28,286 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:28:29,993 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:28:29,997 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:28:30,000 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:31:52,015 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:31:52,061 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:31:52,061 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:31:52,063 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:31:52,066 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:31:52,068 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:31:52,792 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:31:54,658 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:31:54,663 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:31:54,665 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:33:12,138 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:33:12,190 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:33:12,190 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:33:12,193 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:33:12,201 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:33:12,203 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:33:13,086 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:33:15,547 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:33:15,552 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:33:15,555 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:34:25,809 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:34:25,862 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:34:25,862 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:34:25,864 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:34:25,868 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:34:25,871 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:34:26,594 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:34:28,426 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:34:28,430 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:34:28,433 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:35:42,854 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:35:42,895 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:35:42,896 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:35:42,898 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:35:42,901 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:35:42,903 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:35:43,482 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:35:45,230 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:35:45,235 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:35:45,238 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:39:20,458 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:39:20,505 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:39:20,506 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:39:20,509 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:39:20,513 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:39:20,515 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:39:21,194 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:39:23,141 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:39:23,146 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:39:23,149 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:40:10,080 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:40:10,122 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:40:10,122 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:40:10,124 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:40:10,128 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:40:10,130 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:40:10,746 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:40:12,647 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:40:12,654 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:40:12,659 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 11:54:17,308 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 11:54:17,353 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 11:54:17,353 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 11:54:17,354 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 11:54:17,359 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 11:54:17,362 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 11:54:17,928 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 11:54:19,747 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 11:54:19,751 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 11:54:19,753 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:00:34,271 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 12:00:34,312 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 12:00:34,313 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 12:00:34,316 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:00:34,319 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:00:34,321 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:00:34,908 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:00:36,637 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:00:36,642 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:00:36,645 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:06:24,171 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:06:24,173 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:06:24,175 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:06:24,712 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:06:26,441 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:06:26,445 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:06:26,448 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:06:31,351 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:06:31,354 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:06:31,359 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:06:31,796 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:06:33,718 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:06:33,725 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:06:33,727 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:09:24,755 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:09:24,758 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:09:24,759 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:09:25,336 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:09:27,268 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:09:27,271 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:09:27,275 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:09:31,314 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:09:31,316 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:09:31,318 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:09:31,803 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:09:33,455 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:09:33,458 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:09:33,461 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 12:10:26,531 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 12:10:26,577 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 12:10:26,577 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 12:10:26,578 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 12:10:26,581 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 12:10:26,585 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 12:10:27,299 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 12:10:29,127 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 12:10:29,131 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 12:10:29,135 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:40:40,521 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:40:40,584 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:40:40,584 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:40:40,592 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:40:40,600 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:40:40,600 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:40:41,250 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:40:43,074 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:40:43,086 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:40:43,086 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:42:30,887 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:42:30,919 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:42:30,919 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:42:30,919 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:42:30,927 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:42:30,927 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:42:31,503 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:42:33,222 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:42:33,222 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:42:33,222 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:45:23,916 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:45:23,980 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:45:23,980 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:45:23,980 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:45:23,988 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:45:23,996 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:45:25,375 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:45:29,802 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:45:29,802 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:45:29,810 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:46:01,043 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:46:01,075 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:46:01,075 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:46:01,075 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:46:01,083 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:46:01,083 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:46:01,746 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:46:03,692 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:46:03,692 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:46:03,692 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:49:25,183 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:49:25,191 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:49:25,199 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:49:26,248 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:49:29,016 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:49:29,016 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:49:29,016 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:49:33,657 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:49:33,665 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:49:33,665 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:49:34,121 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:49:35,739 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:49:35,739 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:49:35,747 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:57:04,962 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:57:05,032 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:57:05,032 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:57:05,033 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:57:05,036 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:57:05,042 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:57:05,617 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:57:07,460 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:57:07,464 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:57:07,467 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 16:58:20,343 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 16:58:20,389 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 16:58:20,389 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 16:58:20,390 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 16:58:20,396 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 16:58:20,401 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 16:58:20,972 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 16:58:22,715 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 16:58:22,719 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 16:58:22,721 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 17:20:39,971 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:20:40,018 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:20:40,019 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:20:40,020 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:20:40,029 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:20:40,031 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:20:40,596 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:20:42,361 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 17:20:42,365 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 17:20:42,368 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 17:26:20,829 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:26:20,922 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:26:20,923 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:26:20,926 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:26:20,933 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:26:20,935 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:26:21,549 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:26:23,498 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 17:26:23,504 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 17:26:23,515 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 17:35:01,307 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:35:01,356 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:35:01,356 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:35:01,359 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:35:01,367 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:35:01,370 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:35:02,257 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:35:39,269 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:35:39,312 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:35:39,312 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:35:39,313 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:35:39,317 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:35:39,319 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:35:40,064 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:35:41,815 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 17:35:41,819 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 17:35:41,821 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 17:47:55,987 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:47:56,057 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:47:56,057 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:47:56,058 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:47:56,061 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:47:56,063 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:47:56,667 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:47:58,694 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 17:47:58,701 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 17:47:58,703 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 17:48:53,382 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 17:48:53,509 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 17:48:53,510 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 17:48:53,512 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 17:48:53,518 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 17:48:53,529 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 17:48:54,951 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 17:48:57,830 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 17:48:57,835 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 17:48:57,843 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:03:35,987 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:03:36,030 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:03:36,030 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:03:36,031 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:03:36,034 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:03:36,036 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:03:36,631 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:03:38,414 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:03:38,419 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:03:38,421 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:11:02,793 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:11:02,838 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:11:02,839 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:11:02,842 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:11:02,847 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:11:02,849 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:11:03,423 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:11:05,142 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:11:05,147 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:11:05,152 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:42:26,181 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:42:26,293 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:42:26,293 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:42:26,295 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:42:26,309 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:42:26,312 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:42:27,396 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:42:29,142 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:42:29,157 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:42:29,162 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:43:22,562 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:43:22,603 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:43:22,604 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:43:22,604 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:43:22,608 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:43:22,611 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:43:23,214 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:43:25,025 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:43:25,029 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:43:25,032 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:45:25,063 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:45:25,152 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:45:25,152 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:45:25,153 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:45:25,162 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:45:25,165 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:45:26,232 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:45:28,480 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:45:28,483 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:45:28,488 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:46:03,787 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:46:03,829 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:46:03,829 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:46:03,830 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:46:03,838 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:46:03,841 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:46:04,418 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:46:06,152 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:46:06,156 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:46:06,159 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:49:20,339 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:49:20,386 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:49:20,386 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:49:20,387 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:49:20,390 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:49:20,397 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:49:20,986 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:49:22,779 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:49:22,783 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:49:22,786 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 18:52:17,209 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 18:52:17,249 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 18:52:17,249 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 18:52:17,251 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 18:52:17,259 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 18:52:17,261 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 18:52:17,831 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 18:52:19,570 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 18:52:19,574 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 18:52:19,577 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 19:27:39,388 - data_loader - INFO - \u0110ang \u0111\u1ecdc d\u1eef li\u1ec7u t\u1eeb miami-housing.csv
+2025-06-06 19:27:39,433 - data_loader - INFO - \u0110ã \u0111\u1ecdc d\u1eef li\u1ec7u thành công. Kích th\u01b0\u1edbc: (13932, 17)
+2025-06-06 19:27:39,433 - data_loader - INFO - Các c\u1ed9t trong d\u1eef li\u1ec7u: ['LATITUDE', 'LONGITUDE', 'PARCELNO', 'SALE_PRC', 'LND_SQFOOT', 'TOT_LVG_AREA', 'SPEC_FEAT_VAL', 'RAIL_DIST', 'OCEAN_DIST', 'WATER_DIST', 'CNTR_DIST', 'SUBCNTR_DI', 'HWY_DIST', 'age', 'avno60plus', 'month_sold', 'structure_quality']
+2025-06-06 19:27:39,434 - preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 19:27:39,437 - preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 19:27:39,442 - preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 19:27:40,013 - preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 19:27:41,739 - preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 19:27:41,743 - preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 19:27:41,746 - preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 20:26:47,545 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 20:26:47,573 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 20:26:47,576 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 20:26:48,622 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 20:26:50,421 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 20:26:50,430 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 20:26:50,433 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
+2025-06-06 20:26:54,521 - hqd.preprocessing - INFO - X\u1eed lý outliers cho c\u1ed9t SALE_PRC
+2025-06-06 20:26:54,525 - hqd.preprocessing - INFO - S\u1ed1 outliers: 1340
+2025-06-06 20:26:54,527 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o c\u1ed9t SALE_PRC_CLEANED
+2025-06-06 20:26:54,975 - hqd.preprocessing - INFO - B\u1eaft \u0111\u1ea7u t\u1ea1o bi\u1ebfn m\u1edbi (Feature Engineering)
+2025-06-06 20:26:56,692 - hqd.preprocessing - INFO - \u0110ã t\u1ea1o 3 bi\u1ebfn m\u1edbi: PRICE_PER_SQFT, LIVING_LAND_RATIO, AVG_IMPORTANT_DIST
+2025-06-06 20:26:56,695 - hqd.preprocessing - INFO - Chu\u1ea9n b\u1ecb d\u1eef li\u1ec7u cho model
+2025-06-06 20:26:56,698 - hqd.preprocessing - INFO - Features: 15 bi\u1ebfn s\u1ed1, 3 bi\u1ebfn phân lo\u1ea1i
