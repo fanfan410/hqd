@@ -1,9 +1,8 @@
 # Báo cáo cuối kỳ – Dự đoán giá nhà (Miami Housing)
-
-Dự án Web Dự đoán Giá nhà
-Mô tả: Đây là đồ án môn học Hệ hỗ trợ quyết định, xây dựng một ứng dụng web đơn giản để dự đoán giá nhà.
-Công nghệ sử dụng: Python, Pandas, Streamlit.
-Cách chạy:
+- Dự án Web Dự đoán Giá nhà 
+- Mô tả: Đây là môn học Hệ hỗ trợ quyết định, xây dựng một ứng dụng web đơn giản để dự đoán giá nhà.
+- Công nghệ sử dụng: Python, Pandas, Streamlit.
+- Cách chạy:
 Cài đặt các thư viện cần thiết: pip install -r requirements.txt
 Chạy ứng dụng: streamlit run app.py
 
